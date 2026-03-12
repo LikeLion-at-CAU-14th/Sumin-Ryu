@@ -14,7 +14,7 @@
 <td align="center" width="260">
 
 <a href="https://security.cau.ac.kr/" target="_blank">
-<img src="Sumin-Ryu\CAU_logo.jpg" width="90"/>
+<img src="Sumin-Ryu\assets\CAU_logo.jpg" width="90"/>
 </a>
 
 <br><br>
@@ -27,7 +27,7 @@ Department of Industrial Security
 <td align="center" width="260">
 
 <a href="https://cau-likelion.org/" target="_blank">
-<img src="Sumin-Ryu\likelion.jpg" width="90"/>
+<img src="Sumin-Ryu\assets\likelion.jpg" width="90"/>
 </a>
 
 <br><br>
