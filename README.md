@@ -14,26 +14,25 @@
 <td align="center" width="260">
 
 <a href="https://security.cau.ac.kr/" target="_blank">
-<img src="Sumin-Ryu\assets\CAU_logo.jpg" width="90"/>
+<img src="https://i.namu.wiki/i/3qakAT8meg2HxwLMLmTO2gNnXupVFMTypIN1LFiSHcTChP68YrIoipWn85ATYBhZEIUPJAh7e9pfwwcFjvBpe_zNEL39wdARatKOwa4lex0swTRJqwcWCArBZN8gGGag2vObsNJLZef-RXTfPDbIFg.svg" width="90"/>
 </a>
 
-<br><br>
 
-<b>Chung-Ang University</b><br>
-Department of Industrial Security
+<b>**Chung-Ang University**</b>
+**Department of Industrial Security**
 
 </td>
 
 <td align="center" width="260">
 
 <a href="https://cau-likelion.org/" target="_blank">
-<img src="Sumin-Ryu\assets\likelion.jpg" width="90"/>
+<img src="https://ditto-phinf.pstatic.net/20241023_67/1729651839147sUzWv_PNG/6718647be9e3fac4ad3e9c43.png" width="160"/>
 </a>
 
-<br><br>
 
-<b>LIKELION at CAU</b><br>
-14th Frontend
+
+<b>**LIKELION at CAU**</b>
+**14th Frontend**
 
 </td>
 
