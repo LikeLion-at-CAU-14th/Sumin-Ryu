@@ -1,11 +1,48 @@
 <div align="center">
 
+
 # WHO I AM??
-  
-<b>중앙대학교 산업보안학과 25학번</b>  
-<b>2006년생 류수민</b>
 
 </div>
+<h2 align="center">🏫 Affiliation</h2>
+
+<div align="center">
+
+<table>
+<tr>
+
+<td align="center" width="260">
+
+<a href="https://security.cau.ac.kr/" target="_blank">
+<img src="Sumin-Ryu\CAU_logo.jpg" width="90"/>
+</a>
+
+<br><br>
+
+<b>Chung-Ang University</b><br>
+Department of Industrial Security
+
+</td>
+
+<td align="center" width="260">
+
+<a href="https://cau-likelion.org/" target="_blank">
+<img src="Sumin-Ryu\likelion.jpg" width="90"/>
+</a>
+
+<br><br>
+
+<b>LIKELION at CAU</b><br>
+14th Frontend
+
+</td>
+
+</tr>
+</table>
+
+</div>
+
+
 ---
 
 <h2 align="center">📌 Interests</h2>
