@@ -1,7 +1,7 @@
 <div align="center">
 
 
-# WHO I AM??
+# WHO AM I??
 
 </div>
 <h2 align="center">🏫 Affiliation</h2>
