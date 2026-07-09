@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Gamja Flower", sans-serif;
+}
+
+body {
+  background-color: #caeafa;
+}
+
+.page-wrapper {
+  max-width: 680px;
+  margin: auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background: #3dbeff;
+  padding: 30px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 60px;
+}
+
+.header-title {
+  font-size: 40px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.header-sub {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+.input-box {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  border: 1px solid #9ddcf5;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #5fb7da;
+}
+
+.two-column {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 10px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #5fb7da;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  background: #f0faff;
+  border: 1px solid #c2e8f7;
+  border-radius: 10px;
+  font-size: 14px;
+  color: #1a3a4a;
+  outline: none;
+  resize: none;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #73b3ee;
+}
+
+input:focus, textarea:focus {
+  border-color: #64aecc;
+  background: #ffffff;
+}
+
+.submit-btn {
+  padding: 10px;
+  background: #a1daf3;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.submit-btn:hover { background: #3faad6; }
+.submit-btn:active { transform: translateY(2px); }
+
+.post-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.post-card {
+  background: #ffffff;
+  border: 1px solid #9ddcf5;
+  border-radius: 10px;
+  padding: 14px;
+  width: 200px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-card:hover { border-color: #5bbde4; }
+
+.card-emoji { font-size: 20px; margin-bottom: 10px; }
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #2a7fa8;
+  margin-bottom: 4px;
+  word-break: break-word;
+}
+
+.card-content {
+  font-size: 12spx;
+  color: #73b3ee;
+  margin-bottom: 10px;
+  flex: 1;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-author {
+  font-size: 12px;
+  font-weight: 600;
+  color: #5bbde4;
+}
+
+.card-time {
+  font-size: 12px;
+  color: #5bbde4;
+}
+
+.card-delete-btn {
+  font-size: 10px;
+  color: #5bbde4;
+  background: none;
+  border: 1px solid #5bbde4;
+  border-radius: 4px;
+  padding: 2px 8px;
+  cursor: pointer;
+}
+
+.card-delete-btn:hover { color: #ff0000; border-color: #ff0000; }
+
+footer {
+  padding: 10px 24px 24px;
+  border-top: 1px solid #62a9c5;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-member {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.footer-divider { 
+  width: 1px; 
+  height: 16px; 
+  background: #62a9c5; 
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 24px;
+  width: 320px;
+  border: 1px solid #c2e8f7;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal h3 { 
+  font-size: 16px; 
+  font-weight: 600; 
+  color: #2a7fa8; 
+}
+
+.modal .field { 
+  text-align: left; 
+}
+
+.modal-btns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.cancel-btn {
+  padding: 10px;
+  background: #ffffff;
+  border: 1px solid #c2e8f7;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #a8d8ee;
+  cursor: pointer;
+}
+
+.cancel-btn:hover { background: #6eaac8; }
+
+.delete-btn {
+  padding: 10px;
+  background: #f87171;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.delete-btn:hover { background: #ef4444; }
