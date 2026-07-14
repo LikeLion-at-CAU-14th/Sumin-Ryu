@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🏖️ 방명록</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+ 
+<body>
+  <div class="page-wrapper">
+    <header>
+      <div class="header-content">
+        <span>🏖️</span>
+        <div>
+          <div class="header-title">방명록</div>
+          <div class="header-sub">시원한 말 한마디 남겨주세요!</div>
+        </div>
+      </div>
+    </header>
+ 
+    <main>
+      <div class="input-box">
+        <div class="input-title">✉️ 방명록 남기기</div>
+        <div class="two-column">
+          <div class="field">
+            <label>이름</label>
+            <input type="text" id="writer" placeholder="이름을 입력해 주세요!">
+          </div>
+          <div class="field">
+            <label>비밀번호</label>
+            <input type="password" id="password" placeholder="비밀번호를 입력해 주세요!">
+          </div>
+        </div>
+        <div class="field">
+          <label>제목</label>
+          <input type="text" id="title" placeholder="제목을 입력해 주세요!">
+        </div>
+        <div class="field">
+          <label>내용</label>
+          <textarea id="content" rows="3" placeholder="시원한 말 한마디 남겨주세요! 🌊"></textarea>
+        </div>
+        <button class="submit-btn">🌊 남기기</button>
+      </div>
+      <div class="post-gallery" id="post-gallery"></div>
+    </main>
+ 
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-member">
+          <span class="footer-role">백엔드</span>
+          <span class="footer-name">김주연</span>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="footer-member">
+          <span class="footer-role">프론트엔드</span>
+          <span class="footer-name">류수민</span>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div id="modal-overlay" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-icon">🔐</div>
+      <h3>게시글 삭제</h3>
+      <p>비밀번호를 입력해 주세요!</p>
+      <div class="field">
+        <label for="modal-password">비밀번호</label>
+        <input type="password" id="modal-password" placeholder="비밀번호 입력" />
+      </div>
+      <div class="modal-btns">
+        <button class="cancel-btn">취소</button>
+        <button class="delete-btn">삭제</button>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
