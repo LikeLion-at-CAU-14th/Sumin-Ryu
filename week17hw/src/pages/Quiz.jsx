@@ -14,27 +14,28 @@ const Quiz = () => {
         const fetchQuestions = async () => {
             const response = await axios.get(`${BASE_URL}/api/questions`);
             setQuestions(response.data);
-        }
+        };
         fetchQuestions();
-    }, [])
+    }, []);
 
     const handleAnswer = (answer) => {
         const question = questions[current];
-        const updated = {...selected, [question.id]:answer};
+        const updated = { ...selected, [question.id]: answer };
         setSelected(updated);
+
         if (current < questions.length - 1) {
-            setCurrent(current + 1);    
-        } 
-        else {
+            setCurrent(current + 1);
+        } else {
             submitAnswers(updated);
         }
-    }
+    };
 
     const submitAnswers = async (finalAnswers) => {
         const answers = questions.map((q) => ({
             id: q.id,
             answer: finalAnswers[q.id],
         }));
+
         try {
             const response = await axios.post(`${BASE_URL}/api/answers`, { answers });
             const score = response.data.results.filter((r) => r.correct).length;
@@ -42,18 +43,18 @@ const Quiz = () => {
         } catch (error) {
             alert(error.response?.data?.error || "문제 제출 중 오류가 발생했습니다.");
         }
-    }
+    };
 
     const question = questions[current];
 
     return (
-        <div className="flex w-[600px] max-w-[90%] flex-col items-center gap-6 m-5">
-            <div className="text-[20px] font-bold text-[#75b5f5]">
+        <div className="m-5 flex w-full max-w-xl flex-col items-center gap-6">
+            <div className="text-xl font-bold text-[#75b5f5]">
                 {current + 1} / {questions.length}
             </div>
 
-            <div className="flex w-full flex-col items-center gap-[30px] rounded-[16px] bg-white px-[30px] py-[40px] shadow-[2px_2px_10px_rgba(0,0,0,0.1)]">
-                <div className="text-center text-[24px] font-semibold text-[#535353]">
+            <div className="flex w-full flex-col items-center gap-8 rounded-2xl bg-white px-8 py-10 shadow-md">
+                <div className="text-center text-2xl font-semibold text-gray-600">
                     {question?.question}
                 </div>
 
@@ -62,7 +63,7 @@ const Quiz = () => {
                         <button
                             key={answer}
                             onClick={() => handleAnswer(answer)}
-                            className="w-[90%] rounded-[12px] border-2 border-[#ddd] bg-white p-4 text-[17px] text-[#535353] transition-all duration-200 hover:border-[#75b5f5] hover:bg-[#f0f8ff]"
+                            className="rounded-xl border-2 border-gray-300 bg-white p-4 text-base text-gray-600 transition-all duration-200 hover:border-[#75b5f5] hover:bg-blue-50"
                         >
                             {answer}
                         </button>
@@ -70,7 +71,7 @@ const Quiz = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Quiz
+export default Quiz;
