@@ -7,7 +7,7 @@ function App() {
   const bgColor = '#fef3e2';
   const avatar = '🦁';
   const showBadge = true;
-  const socialUrl = '개인 깃허브 링크';
+  const socialUrl = '개인 깃허브 링크ddd';
 
   return (
     <Wrapper>
