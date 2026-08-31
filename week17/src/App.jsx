@@ -2,12 +2,12 @@ import styled from 'styled-components';
 
 function App() {
   const name = import.meta.env.VITE_NAME;
-  const role = import.meta.env.VITE_ROLE;
-  const message = import.meta.env.VITE_MESSAGE;
-  const bgColor = import.meta.env.VITE_BG_COLOR || '#ffffff';
-  const avatar = import.meta.env.VITE_AVATAR_EMOJI || '👋';
-  const showBadge = import.meta.env.VITE_SHOW_BADGE === 'true';
-  const socialUrl = import.meta.env.VITE_SOCIAL_URL;
+  const role = 'Frontend Developer';
+  const message = '프론트 짱짱';
+  const bgColor = '#fef3e2';
+  const avatar = '🦁';
+  const showBadge = true;
+  const socialUrl = '개인 깃허브 링크ddd';
 
   return (
     <Wrapper>
@@ -19,7 +19,7 @@ function App() {
         <Message>{message}</Message>
         {socialUrl && (
           <Link href={socialUrl} target="_blank" rel="noreferrer">
-            바로가기 →
+            깃허브 링크
           </Link>
         )}
       </Card>
