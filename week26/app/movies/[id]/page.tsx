@@ -1,4 +1,12 @@
+import MovieReviewsButton from '@/components/MovieReviewsButton';
 import { movies } from '@/data/movies';
+import { Do_Hyeon } from 'next/font/google';
+import Image from 'next/image';
+
+const doHyeon = Do_Hyeon({
+  weight: '400',
+  subsets: ['latin'],
+});
 
 interface MovieDetailPageProps {
   params: Promise<{
@@ -24,12 +32,16 @@ export default async function MovieDetailPage({
   }
 
   return (
-    <main>
+    <main className={doHyeon.className}>
       <h1>{movie.title}</h1>
       
-      <img
+      <Image
         src={movie.image}
         alt={movie.title}
+        width={300}
+        height={432}
+        preload
+        style={{ objectFit: 'cover' }}
       />
 
       <p>
@@ -39,6 +51,7 @@ export default async function MovieDetailPage({
       <p style={{ whiteSpace: 'pre-line' }}>{movie.description}</p>
 
       {/*과제3 - 관람평 불러오기*/}
+      <MovieReviewsButton />
 
     </main>
   );
