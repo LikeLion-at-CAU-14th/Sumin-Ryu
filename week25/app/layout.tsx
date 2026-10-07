@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
+import NavBar from "@/components/NavBar";
 
 export const metadata: Metadata = {
   title: "맛집 도감",
@@ -19,10 +20,7 @@ export default function RootLayout({
           <Link href="/" className="text-xl font-bold text-orange-500">
             🦁 맛집 도감
           </Link>
-          <nav className="flex gap-6 font-medium">
-            <Link href="/restaurants">맛집 목록</Link>
-            <Link href="/about">소개</Link>
-          </nav>
+          <NavBar />
         </header>
         <main className="mx-auto max-w-3xl px-6 py-10">{children}</main>
       </body>

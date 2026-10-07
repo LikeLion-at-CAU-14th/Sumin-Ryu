@@ -1,6 +1,9 @@
+import BackButton from "@/components/BackButton";
 import LikeButton from "@/components/LikeButton";
 import { restaurants } from "@/data/restaurants";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+
 
 export default async function RestaurantsDetailPage({
     params,
@@ -11,7 +14,7 @@ export default async function RestaurantsDetailPage({
     const restaurant = restaurants.find((item) => item.id === Number(id));
 
     if (!restaurant) {
-        return <p>그런 맛집은 도감에 없어요</p>;
+        notFound();
     }
 
     return (
@@ -24,9 +27,7 @@ export default async function RestaurantsDetailPage({
       </p>
       <p className="rounded-xl bg-orange-50 p-4">“{restaurant.comment}”</p>
       <LikeButton />
-      <Link href="/restaurants" className="text-orange-500 underline">
-        목록으로 돌아가기
-      </Link>
+      <BackButton />
     </div>
     )
 }
