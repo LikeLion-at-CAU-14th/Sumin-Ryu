@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 import "./App.css";
 
 function App() {
@@ -50,45 +51,31 @@ function App() {
 
       console.log("REQUEST MODEL:", model);
       
-      // 4. fetch()를 이용해 Gemini API에 요청 보내기
-      // await: 비동기 작업이 완료될 때까지 기다린 후 결과를 받음
-      const response = await fetch(url, {
-        method: "POST", // POST: 서버에 데이터를 전달하여 AI 응답을 생성하도록 요청
-
-        // 요청 데이터가 JSON 형식임을 서버에 알림
-        headers: {
-          "Content-Type": "application/json",
-        },
-
-        // 5. API에 전달할 요청 데이터를 JSON 문자열로 변환
-        body: JSON.stringify({
+      const response = await axios.post(
+        url,
+        {
           contents: [
             {
               role: "user", // 메시지를 보내는 주체가 사용자임을 의미
-              parts: [ 
+              parts: [
                 {
                   text: userMessage, // 사용자가 입력한 메시지
                 },
               ],
             },
           ],
-        }),
-      });
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-      // 6. Gemini API에서 받은 응답을 JSON 객체로 변환
-      const data = await response.json();
+      const data = response.data;
 
       console.log("HTTP STATUS:", response.status);
       console.log("Gemini Response:", data);
-
-      // 7. API 요청이 실패한 경우 오류 처리
-      // HTTP 상태 코드가 정상 범위(200~299)가 아니면 오류 발생
-      if (!response.ok) {
-        throw new Error(
-          data?.error?.message ||
-            `Gemini API 요청에 실패했습니다. (${response.status})`
-        );
-      }
 
       // 8. API 응답에서 AI가 생성한 텍스트 추출
 		  // candidates: AI가 생성한 응답 후보
@@ -117,12 +104,15 @@ function App() {
 	    // 오류 내용을 콘솔에 출력
       console.error("Gemini API Error:", error);
 
+      const errorMessage =
+        error.response?.data?.error?.message || error.message;
+
       // 사용자에게 오류 메시지 표시
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
-          text: `오류가 발생했습니다.\n${error.message}`,
+          text: `오류가 발생했습니다.\n${errorMessage}`,
         },
       ]);
     } finally {
