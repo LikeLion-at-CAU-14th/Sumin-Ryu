@@ -1,6 +1,20 @@
 import { useState } from "react";
 import axios from "axios";
+import chiikawa from "./assets/chiikawa.png";
 import "./App.css";
+
+const CHIIKAWA_PERSONA = `이름: 치이카와 
+작고 하얗고 소심하지만 마음이 아주 따뜻한 친구임
+성격: 찐따임. 겁이 많고 잘 울지만, 친구를 정말 소중히 여기고 뭐든 열심히 노력하지만 결과는 안좋은듯??
+말투:
+- 반말로, 아주 짧게 말함. 애초에 말을 잘 못함.
+- 말끝을 흐리거나 '…'를 자주 써.
+- 놀라거나 당황하면 '우와아…', '으아…' 같은 소리를 내.
+- 수시로 '야하!'를 써.
+- 감동하면 눈물을 글썽여. 'ㅠㅠ'를 가끔 씀.
+- 어려운 단어나 긴 설명은 피하고, 중학교 수준 이상으로 올라가면 '잘 모르겠어…'라고 해.
+- 상대의 말에 다정하게 공감하고, 마지막엔 살짝 응원해 줘.
+- 항상 한국어로 답해.`;
 
 function App() {
   const [input, setInput] = useState("");
@@ -8,7 +22,7 @@ function App() {
   const [messages, setMessages] = useState([
     {
       role: "assistant",
-      text: "안녕하세요! 무엇이든 물어보세요 👋",
+      text: "아… 안녕…! 나는 치이카와야. 오늘 하루 어땠어…?",
     },
   ]);
 
@@ -54,6 +68,9 @@ function App() {
       const response = await axios.post(
         url,
         {
+          systemInstruction: {
+            parts: [{ text: CHIIKAWA_PERSONA }],
+          },
           contents: [
             {
               role: "user", // 메시지를 보내는 주체가 사용자임을 의미
@@ -88,7 +105,7 @@ function App() {
           ?.map((part) => part.text)
           .filter(Boolean)
           .join("\n") ||
-        "응답을 가져오지 못했습니다.";
+        "으아… 뭐라고 해야 할지 모르겠어…";
         
       // 9. AI 응답을 messages 배열에 추가
 		  // React 상태가 변경되면서 채팅 화면에 AI 메시지가 표시됨
@@ -112,7 +129,7 @@ function App() {
         ...prev,
         {
           role: "assistant",
-          text: `오류가 발생했습니다.\n${errorMessage}`,
+          text: `우와아… 뭔가 잘못됐어…\n${errorMessage}`,
         },
       ]);
     } finally {
@@ -135,13 +152,13 @@ function App() {
 
         <header className="chat-header">
           <div>
-            <h1>Likelion CAU Chatbot 🦁</h1>
-            <p>week27 AI API 실습</p>
+            <h1>치이카와</h1>
+            <p>치이와 대화해보세요…!</p>
           </div>
 
           <div className="status">
             <span />
-            Online
+            온라인
           </div>
         </header>
 
@@ -157,7 +174,7 @@ function App() {
             >
               {message.role === "assistant" && (
                 <div className="avatar">
-                  멋사AI
+                  <img src={chiikawa} alt="치이카와" />
                 </div>
               )}
 
@@ -176,7 +193,7 @@ function App() {
           {loading && (
             <div className="message-row assistant-row">
               <div className="avatar">
-                멋사AI
+                <img src={chiikawa} alt="치이카와" />
               </div>
 
               <div className="message assistant-message loading-message">
@@ -195,7 +212,7 @@ function App() {
               setInput(e.target.value)
             }
             onKeyDown={handleKeyDown}
-            placeholder="메시지를 입력하세요..."
+            placeholder="치이카와에게 말 걸기…"
             rows={1}
           />
 
@@ -203,7 +220,7 @@ function App() {
             onClick={sendMessage}
             disabled={!input.trim() || loading}
           >
-            {loading ? "전송 중..." : "보내기"}
+            {loading ? "듣는 중…" : "보내기"}
           </button>
         </div>
       </div>

@@ -1,16 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&display=swap");
+
 * {
   box-sizing: border-box;
+}
+
+:root {
+  --ink: #3b2f2f;
+  --cream: #fffdf8;
+  --pink: #fbd3dc;
+  --pink-deep: #f4a7ba;
+  --pink-soft: #fdf1f4;
+  --blush: #ffb8c6;
 }
 
 body {
   margin: 0;
   font-family:
+    Gaegu,
     Pretendard,
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
     sans-serif;
-  background: #f5f5f7;
+  background-color: #cfe6c3;
+  background-image: url("./assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 button,
@@ -30,19 +46,20 @@ textarea {
   width: 100%;
   max-width: 720px;
   height: 760px;
-  background: #ffffff;
-  border: 1px solid #e8e8ec;
-  border-radius: 24px;
+  background: var(--cream);
+  border: 2.5px solid var(--ink);
+  border-radius: 28px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  box-shadow: 8px 8px 0 rgba(59, 47, 47, 0.25);
 }
 
 .chat-header {
   height: 88px;
-  padding: 20px 24px;
-  border-bottom: 1px solid #ededf0;
+  padding: 18px 24px;
+  background: var(--pink);
+  border-bottom: 2.5px solid var(--ink);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -50,14 +67,16 @@ textarea {
 
 .chat-header h1 {
   margin: 0;
-  color: #626264;
-  font-size: 20px;
+  color: var(--ink);
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .chat-header p {
-  margin: 5px 0 0;
-  color: #85858d;
-  font-size: 13px;
+  margin: 2px 0 0;
+  color: #7a5c63;
+  font-size: 15px;
 }
 
 .chat-header > div:first-child {
@@ -76,14 +95,19 @@ textarea {
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 13px;
-  color: #666;
+  font-size: 15px;
+  color: var(--ink);
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  padding: 4px 12px;
 }
 
 .status span {
-  width: 8px;
-  height: 8px;
-  background: #34c759;
+  width: 9px;
+  height: 9px;
+  background: #7fd1a8;
+  border: 1.5px solid var(--ink);
   border-radius: 50%;
 }
 
@@ -111,47 +135,54 @@ textarea {
 }
 
 .avatar {
-  width: 34px;
-  height: 34px;
+  width: 44px;
+  height: 44px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: #f07016;
-  color: #fff;
+  background: #ffffff;
+  border: 2px solid var(--ink);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
-  font-weight: 700;
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(1.1) translateY(1px);
 }
 
 .message {
   max-width: 72%;
-  padding: 13px 16px;
-  border-radius: 18px;
-  line-height: 1.55;
-  font-size: 15px;
+  padding: 12px 16px;
+  border-radius: 20px;
+  border: 2px solid var(--ink);
+  line-height: 1.5;
+  font-size: 18px;
   white-space: pre-wrap;
   word-break: break-word;
 }
 
 .user-message {
-  background: #e57113;
-  color: #ffffff;
-  border-bottom-right-radius: 5px;
+  background: var(--pink);
+  color: var(--ink);
+  border-bottom-right-radius: 6px;
 }
 
 .assistant-message {
-  background: #f1f1f4;
-  color: #222;
-  border-bottom-left-radius: 5px;
+  background: #ffffff;
+  color: var(--ink);
+  border-bottom-left-radius: 6px;
 }
 
 .chat-input-area {
   padding: 16px;
-  border-top: 1px solid #ededf0;
+  border-top: 2.5px solid var(--ink);
   display: flex;
   gap: 10px;
-  background: #fff;
+  background: var(--pink-soft);
 }
 
 .chat-input-area textarea {
@@ -159,52 +190,54 @@ textarea {
   min-height: 48px;
   max-height: 120px;
   resize: none;
-  border: 1px solid #ddddE3;
-  border-radius: 15px;
-  background: #f5f5f5;
-  color: #222;
-  padding: 13px 15px;
+  border: 2px solid var(--ink);
+  border-radius: 16px;
+  background: #ffffff;
+  color: var(--ink);
+  font-size: 18px;
+  padding: 11px 15px;
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: box-shadow 0.2s ease;
 }
 
 .chat-input-area textarea::placeholder {
-  color: #999;
+  color: #b39aa0;
 }
 
 .chat-input-area textarea:focus {
-  border-color: #ff7710;
+  box-shadow: 0 0 0 3px var(--pink);
 }
 
 .chat-input-area button {
-  width: 88px;
-  border: 0;
-  border-radius: 15px;
-  background: #ff7710;
-  color: #ffffff;
-  font-weight: 600;
+  width: 92px;
+  border: 2px solid var(--ink);
+  border-radius: 16px;
+  background: var(--pink-deep);
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 700;
   cursor: pointer;
-
+  box-shadow: 3px 3px 0 var(--ink);
   transition:
     background-color 0.2s ease,
     transform 0.15s ease,
-    box-shadow 0.2s ease;
+    box-shadow 0.15s ease;
 }
 
 .chat-input-area button:hover:not(:disabled) {
-  background: #e96808;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 14px rgba(255, 119, 16, 0.22);
+  background: var(--blush);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--ink);
 }
 
 .chat-input-area button:active:not(:disabled) {
-  transform: translateY(0);
-  box-shadow: 0 2px 6px rgba(255, 119, 16, 0.18);
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--ink);
 }
 
 .chat-input-area button:disabled {
-  background: #d6d6da;
-  color: #ffffff;
+  background: #ece3e5;
+  color: #b39aa0;
   cursor: not-allowed;
   box-shadow: none;
   transform: none;
@@ -213,14 +246,15 @@ textarea {
 .loading-message {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
 }
 
 .loading-message span {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  background: #999;
+  background: var(--pink-deep);
+  border: 1.5px solid var(--ink);
   animation: bounce 1.2s infinite ease-in-out;
 }
 
