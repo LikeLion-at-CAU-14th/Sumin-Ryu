@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { getAlbum } from "@/data/albums";
 
@@ -27,7 +28,14 @@ export default async function AlbumPage({
       </Link>
 
       <div className="detail">
-        <img src={album.cover} className="detail-cover" />
+        <Image
+          src={album.cover}
+          alt={`${album.artist} - ${album.title} 앨범 표지`}
+          width={600}
+          height={600}
+          className="detail-cover"
+          priority
+        />
 
         <div className="detail-info">
           <div className="detail-genre">
