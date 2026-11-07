@@ -56,12 +56,11 @@ export default async function AlbumPage({
           <div className="detail-genre">
             {album.genre} · {album.year}
           </div>
-          {/* 과제: 앨범 제목을 div 대신 알맞은 시맨틱 태그로 바꾸기 */}
-          <div className="detail-title">{album.title}</div>
+          <h1 className="detail-title">{album.title}</h1>
           <div className="detail-artist">{album.artist}</div>
           <p className="detail-desc">{album.description}</p>
 
-          <div className="track-heading">수록곡</div>
+          <h2 className="track-heading">수록곡</h2>
           <ol className="track-list">
             {album.tracks.map((track) => (
               <li key={track}>{track}</li>
