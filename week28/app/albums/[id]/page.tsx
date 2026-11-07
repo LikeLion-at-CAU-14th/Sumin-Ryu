@@ -16,13 +16,26 @@ export async function generateMetadata({
     return { title: "앨범을 찾을 수 없어요" };
   }
 
+  const description = `${album.artist}의 ${album.year}년 ${album.genre} 앨범. ${album.description}`;
+
   return {
     title: album.title,
-    description: `${album.artist}의 ${album.year}년 ${album.genre} 앨범. ${album.description}`,
+    description,
+    openGraph: {
+      title: `${album.title} - ${album.artist}`,
+      description,
+      type: "music.album",
+      images: [
+        {
+          url: album.cover,
+          width: 3000,
+          height: 3000,
+          alt: `${album.artist} - ${album.title} 앨범 표지`,
+        },
+      ],
+    },
   };
 }
-
-// 과제: generateMetadata에 openGraph 추가해서 앨범 표지가 링크 미리보기에 뜨게 하기
 
 export default async function AlbumPage({
   params,
